@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,23 +7,26 @@
 <title>Cartas Zener — Morgana</title>
 
 <style>
+
 body {
   margin: 0;
   font-family: "Georgia", serif;
   background: linear-gradient(180deg, #f6f1ea, #e8dfd2);
   text-align: center;
+  color: #3a2f2f;
 }
 
 /* Logo */
 .logo {
   max-width: 120px;
-  margin: 10px auto;
+  margin: 15px auto;
 }
 
 /* Símbolos */
 .symbols {
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 10px;
+  margin-bottom: 10px;
 }
 
 .symbols span:nth-child(1) { color: gold; }
@@ -31,28 +35,48 @@ body {
 .symbols span:nth-child(4) { color: black; }
 .symbols span:nth-child(5) { color: green; }
 
-/* Visor */
+/* Título */
+h1 {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+/* BOTONES */
+.buttons {
+  margin: 30px 0;
+}
+
+.btn {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 15px auto;
+  padding: 18px;
+  font-size: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Leer online */
+.read {
+  background: #8c78b4;
+}
+
+/* Descargar */
+.download {
+  background: #b48c5a;
+}
+
+/* Viewer SOLO PC */
 .viewer {
-  width: 100%;
-  height: calc(100vh - 140px);
+  display: none;
 }
 
 iframe {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   border: none;
-}
-
-/* Botón fallback */
-.open-btn {
-  display: none;
-  margin: 30px auto;
-  padding: 15px 25px;
-  font-size: 16px;
-  background: #8c78b4;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
 }
 
 </style>
@@ -70,30 +94,26 @@ iframe {
   <span>★</span>
 </div>
 
-<h2>Cartas Zener</h2>
+<h1>CARTAS ZENER</h1>
+
+<div class="buttons" id="buttons">
+  <a href="INSTRUCCIONES.pdf" class="btn read">Leer online</a>
+  <a href="INSTRUCCIONES.pdf" class="btn download" download>Descargar</a>
+</div>
 
 <div class="viewer" id="viewer">
   <iframe src="INSTRUCCIONES.pdf#zoom=page-width"></iframe>
 </div>
-
-<a href="INSTRUCCIONES.pdf" class="open-btn" id="openBtn">
-Abrir guía completa
-</a>
 
 <script>
 function esMovil() {
   return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
-if (esMovil()) {
-  // Oculta iframe
-  document.getElementById("viewer").style.display = "none";
-
-  // Muestra botón
-  document.getElementById("openBtn").style.display = "inline-block";
-
-  // Redirige automáticamente (opcional)
-  window.location.href = "INSTRUCCIONES.pdf";
+if (!esMovil()) {
+  // En PC mostramos visor
+  document.getElementById("viewer").style.display = "block";
+  document.getElementById("buttons").style.display = "none";
 }
 </script>
 
