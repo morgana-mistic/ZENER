@@ -2,37 +2,116 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cartas Zener - Morgana</title>
+<title>Cartas Zener — Morgana</title>
 
 <style>
+
 body {
   margin: 0;
-  background: #f4efe8;
-  font-family: serif;
-}
-
-.header {
-  text-align: center;
-  padding: 10px;
-  font-size: 18px;
+  font-family: "Georgia", serif;
+  background: linear-gradient(180deg, #f6f1ea, #e8dfd2);
   color: #3a2f2f;
 }
 
-iframe {
-  width: 100%;
-  height: calc(100vh - 50px);
-  border: none;
+/* Fondo simbólico sutil */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at center, rgba(140, 120, 180, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
 }
+
+/* Contenedor principal */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Título */
+h1 {
+  margin: 10px 0 5px;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+/* Subtítulo */
+h2 {
+  margin: 0 0 15px;
+  font-weight: normal;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* Línea decorativa */
+.line {
+  width: 80px;
+  height: 2px;
+  margin: 10px auto 20px;
+  background: linear-gradient(to right, transparent, #8c78b4, transparent);
+}
+
+/* Símbolos Zener decorativos */
+.symbols {
+  font-size: 22px;
+  margin-bottom: 10px;
+  letter-spacing: 10px;
+}
+
+.symbols span:nth-child(1) { color: gold; }
+.symbols span:nth-child(2) { color: red; }
+.symbols span:nth-child(3) { color: cyan; }
+.symbols span:nth-child(4) { color: black; }
+.symbols span:nth-child(5) { color: green; }
+
+/* Visor PDF */
+.viewer {
+  width: 95%;
+  max-width: 900px;
+  height: 75vh;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+.footer {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="header">
-Guía de uso — Cartas Zener Morgana
-</div>
+<div class="container">
 
-<iframe src="INSTRUCCIONES.pdf"></iframe>
+  <div class="symbols">
+    <span>●</span>
+    <span>✚</span>
+    <span>≈</span>
+    <span>■</span>
+    <span>★</span>
+  </div>
+
+  <h1>CARTAS ZENER</h1>
+  <h2>Percepción extrasensorial</h2>
+
+  <div class="line"></div>
+
+  <div class="viewer">
+    <iframe src="INSTRUCCIONES.pdf" width="100%" height="100%" style="border:none;"></iframe>
+  </div>
+
+  <div class="footer">
+    Morgana — símbolos, percepción y práctica
+  </div>
+
+</div>
 
 </body>
 </html>
